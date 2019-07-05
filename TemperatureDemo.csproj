@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Device.Gpio" Version="0.1.0-prerelease.19353.3" />
+    <PackageReference Include="Iot.Device.Bindings" Version="0.1.0-prerelease.19353.3" />
+  </ItemGroup>
+
 </Project>
