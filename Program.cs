@@ -1,9 +1,9 @@
-﻿using Iot.Device.Bmx280;
+﻿using Iot.Device.Bmxx80;
+using Iot.Device.Bmxx80.PowerMode;
 using Iot.Device.CharacterLcd;
 using Iot.Units;
 using System;
 using System.Device.I2c;
-using System.Device.Pwm;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,7 +18,7 @@ namespace TemperatureDemo
             using Bme280 tempSensor = new Bme280(I2cDevice.Create(new I2cConnectionSettings(1, Bme280.DefaultI2cAddress)));
             tempSensor.SetTemperatureSampling(Sampling.UltraHighResolution);
             tempSensor.SetHumiditySampling(Sampling.UltraHighResolution);
-            tempSensor.SetPowerMode(PowerMode.Normal);
+            tempSensor.SetPowerMode(Bmx280PowerMode.Normal);
             using CancellationTokenSource cts = new CancellationTokenSource();
             Task workTask = Task.Run(() => DoWorkAsync(lcdDisplay, tempSensor, cts.Token), cts.Token);
             Console.WriteLine("Press Enter to stop the program...");
